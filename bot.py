@@ -65,40 +65,40 @@ def handle_docs_document(message):
     if a == 1:
         client.reply_to(message, "Фото добавлено мною")
         txt = "Method1:\n----------------\n"
-        tx = TextRecognition.recognizeText(src, True, True)
+        tx = TextRecognition.recognize_text(src, True, True)
         for i in tx:
             txt += i[1] + '\n----------------\n'
         client.reply_to(message, txt)
-        client.reply_to(message, "Method2:\n----------------\n" + TextRecognition.justTesseract(src))
+        client.reply_to(message, "Method2:\n----------------\n" + TextRecognition.just_tesseract(src))
         client.send_photo(message.chat.id, photo=open(src, 'rb'))
     elif a == 2:
-        ImagePreparation.clearContours(src, "ans.jpg")
+        ImagePreparation.clear_contours(src, "ans.jpg")
         client.reply_to(message, "Фото добавлено мною")
         txt = "Method1:\n----------------\n"
-        tx = TextRecognition.recognizeText("ans.jpg", True, True)
+        tx = TextRecognition.recognize_text("ans.jpg", True, True)
         for i in tx:
             txt += i[1] + '\n----------------\n'
         client.reply_to(message, txt)
-        client.reply_to(message, "Method2:\n----------------\n" + TextRecognition.justTesseract("ans.jpg"))
+        client.reply_to(message, "Method2:\n----------------\n" + TextRecognition.just_tesseract("ans.jpg"))
         client.send_photo(message.chat.id, photo=open("ans.jpg", 'rb'))
     elif a == 3:
         client.reply_to(message, "Фото добавлено мною")
         txt = "Method1:\n----------------\n"
-        tx = TextRecognition.recognizeText(src, True, True)
+        tx = TextRecognition.recognize_text(src, True, True)
         for i in tx:
             txt += TextTranslate.translate(i[1]) + '\n----------------\n'
         client.reply_to(message, txt)
-        client.reply_to(message, "Method2:\n----------------\n" + TextTranslate.translate(TextRecognition.justTesseract(src)))
+        client.reply_to(message, "Method2:\n----------------\n" + TextTranslate.translate(TextRecognition.just_tesseract(src)))
         client.send_photo(message.chat.id, photo=open(src, 'rb'))
     elif a == 4:
-        ImagePreparation.clearContours(src, "ans.jpg")
+        ImagePreparation.clear_contours(src, "ans.jpg")
         client.reply_to(message, "Фото добавлено мною")
         txt = "Method1:\n----------------\n"
-        tx = TextRecognition.recognizeText("ans.jpg", True, True)
+        tx = TextRecognition.recognize_text("ans.jpg", True, True)
         for i in tx:
             txt += TextTranslate.translate(i[1]) + '\n----------------\n'
         client.reply_to(message, txt)
-        client.reply_to(message, "Method2:\n----------------\n" + TextTranslate.translate(TextRecognition.justTesseract("ans.jpg")))
+        client.reply_to(message, "Method2:\n----------------\n" + TextTranslate.translate(TextRecognition.just_tesseract("ans.jpg")))
         client.send_photo(message.chat.id, photo=open("ans.jpg", 'rb'))
             
 
